@@ -1,0 +1,1129 @@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 188-726-667
+127.0.0.1 - - [02/Nov/2025 22:56:29] "[35m[1mPOST /auth/login HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: user.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/flask/app.py", line 2213, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/flask/app.py", line 2193, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/WorkBridge-Backend/routes.py", line 49, in login
+    db.session.commit()
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 597, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1311, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1286, in _prepare_impl
+    self.session.flush()
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4331, in flush
+    self._flush(objects)
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4466, in _flush
+    with util.safe_reraise():
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4427, in _flush
+    flush_context.execute()
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1419, in execute
+    return meth(
+           ^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
+[SQL: INSERT INTO user (username, password_hash, role, name, skills, experience, phone, location, resume_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('demo@test.com', '$2b$12$6yp.e9WdzySa5bANfl2t7uiZYNr3AlThpteCiW9xGFTA98OxGTKbK', 'employer', 'Demo User', None, None, None, None, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+ * Detected change in '/home/stephen/WorkBridge-Backend/routes.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 188-726-667
+127.0.0.1 - - [02/Nov/2025 22:56:47] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 22:56:59] "POST /auth/login HTTP/1.1" 200 -
+ * Detected change in '/home/stephen/WorkBridge-Backend/routes.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 188-726-667
+127.0.0.1 - - [02/Nov/2025 22:57:28] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 22:57:49] "GET /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 22:57:49] "GET /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 22:57:49] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 22:57:49] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 22:57:49] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 22:57:49] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 22:57:54] "OPTIONS /applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 22:57:54] "[35m[1mPOST /applications HTTP/1.1[0m" 201 -
+127.0.0.1 - - [02/Nov/2025 22:58:03] "OPTIONS /applications/2 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 22:58:03] "DELETE /applications/2 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:01:02] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:02:36] "OPTIONS /auth/register HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:02:36] "[35m[1mPOST /auth/register HTTP/1.1[0m" 201 -
+127.0.0.1 - - [02/Nov/2025 23:02:36] "OPTIONS /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:02:36] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:02:36] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:02:36] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:02:36] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:02:36] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:02:36] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:02:36] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:02:36] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:02:36] "OPTIONS /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:02:36] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:02:36] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:03:21] "OPTIONS /jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:03:21] "[35m[1mPOST /jobs HTTP/1.1[0m" 201 -
+127.0.0.1 - - [02/Nov/2025 23:03:21] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:03:21] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:03:21] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:03:21] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:03:21] "OPTIONS /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:03:21] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:03:36] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:03:36] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:03:36] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:03:36] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:04:36] "OPTIONS /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:04:36] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:04:36] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:04:36] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:04:36] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:04:36] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:04:36] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:04:36] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:04:36] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:04:36] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:04:36] "OPTIONS /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:04:36] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:04:36] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:42] "OPTIONS /jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:42] "[35m[1mPOST /jobs HTTP/1.1[0m" 201 -
+127.0.0.1 - - [02/Nov/2025 23:05:42] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:42] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:42] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:42] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:42] "OPTIONS /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:42] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:47] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:48] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:48] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:48] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:48] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:48] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:48] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:48] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:48] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:48] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:48] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:48] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:48] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:48] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:48] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:48] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:48] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:53] "OPTIONS /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:53] "OPTIONS /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:53] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:53] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "OPTIONS /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:57] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:59] "OPTIONS /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:59] "OPTIONS /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:59] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:05:59] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "OPTIONS /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:03] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:06] "OPTIONS /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:06] "OPTIONS /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:06] "GET /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:06] "GET /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:06] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:06] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:06] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:06] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:10] "OPTIONS /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:10] "OPTIONS /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:10] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:10] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "OPTIONS /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "OPTIONS /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:12] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:13] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:13] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:13] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:13] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:13] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:13] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:13] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:13] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:13] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:22] "OPTIONS /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:22] "OPTIONS /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:22] "GET /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:22] "GET /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:22] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:22] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:22] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:22] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:22] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:22] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:22] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:37] "OPTIONS /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:37] "OPTIONS /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:37] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:37] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "OPTIONS /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "OPTIONS /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:39] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:42] "OPTIONS /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:42] "OPTIONS /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:42] "GET /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:42] "GET /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:42] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:42] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:42] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:42] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "OPTIONS /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:53] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:54] "OPTIONS /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:54] "OPTIONS /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:54] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:54] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:55] "OPTIONS /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:55] "OPTIONS /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:55] "GET /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:55] "GET /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:55] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:55] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:55] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:55] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "OPTIONS /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:58] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:59] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:06:59] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:00] "GET /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:00] "GET /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:00] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:00] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:00] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:00] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:05] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:08] "OPTIONS /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:08] "OPTIONS /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:08] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:08] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:09] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:13] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:13] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:14] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:15] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:15] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:15] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:15] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:15] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:15] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:15] "OPTIONS /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:15] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:15] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:21] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:21] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:21] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:21] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:25] "OPTIONS /applications/9/status HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:07:25] "PUT /applications/9/status HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:08:15] "OPTIONS /interviews HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:08:15] "[35m[1mPOST /interviews HTTP/1.1[0m" 201 -
+127.0.0.1 - - [02/Nov/2025 23:08:15] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:08:15] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:10:37] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:10:59] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:10:59] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:10:59] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:10:59] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:11:52] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:11:52] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:11:52] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:11:52] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:11:52] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:11:52] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:11:52] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:11:52] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:11:52] "OPTIONS /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:11:52] "OPTIONS /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:11:52] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:11:52] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:11:56] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:11:56] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:12:58] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:12:58] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:12:58] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:12:58] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:13:53] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:13:53] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:13:53] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:13:53] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:13:53] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:13:53] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:13:53] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:13:53] "OPTIONS /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:13:53] "OPTIONS /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:13:53] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:13:53] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:14:00] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:14:00] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:14:00] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:14:00] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:14:41] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:14:41] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:14:41] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:14:41] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:15:06] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:15:06] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:15:06] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:15:06] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:15:06] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:15:06] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:15:06] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:15:06] "OPTIONS /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:15:06] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:15:06] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:15:10] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:15:10] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:15:40] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:15:40] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:15:40] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:15:40] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:15:40] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:15:40] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:15:40] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:15:40] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:15:40] "OPTIONS /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:15:40] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:15:40] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:13] "OPTIONS /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:13] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:13] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:13] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:13] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:13] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:13] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:13] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:13] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:13] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:13] "OPTIONS /interviews/jobseeker HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:13] "GET /interviews/jobseeker HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:13] "GET /interviews/jobseeker HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:17] "OPTIONS /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:17] "OPTIONS /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:17] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:17] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:18] "OPTIONS /applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:18] "[35m[1mPOST /applications HTTP/1.1[0m" 201 -
+127.0.0.1 - - [02/Nov/2025 23:16:20] "[35m[1mPOST /applications HTTP/1.1[0m" 201 -
+127.0.0.1 - - [02/Nov/2025 23:16:21] "[35m[1mPOST /applications HTTP/1.1[0m" 201 -
+127.0.0.1 - - [02/Nov/2025 23:16:22] "[35m[1mPOST /applications HTTP/1.1[0m" 201 -
+127.0.0.1 - - [02/Nov/2025 23:16:23] "[35m[1mPOST /applications HTTP/1.1[0m" 201 -
+127.0.0.1 - - [02/Nov/2025 23:16:25] "OPTIONS /applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:25] "[35m[1mPOST /applications HTTP/1.1[0m" 201 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:47] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:48] "OPTIONS /applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:48] "OPTIONS /jobs/2 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:48] "OPTIONS /jobs/2 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:48] "GET /jobs/2 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:48] "[31m[1mPOST /applications HTTP/1.1[0m" 400 -
+127.0.0.1 - - [02/Nov/2025 23:16:48] "GET /jobs/2 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:50] "[31m[1mPOST /applications HTTP/1.1[0m" 400 -
+127.0.0.1 - - [02/Nov/2025 23:16:52] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:52] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:52] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:52] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:52] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:52] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:52] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:52] "OPTIONS /interviews/jobseeker HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:52] "OPTIONS /interviews/jobseeker HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:52] "GET /interviews/jobseeker HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:16:52] "GET /interviews/jobseeker HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:17:49] "OPTIONS /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:17:49] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:17:49] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:17:49] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:17:49] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:17:49] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:17:49] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:17:49] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:17:49] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:17:49] "OPTIONS /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:17:49] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:17:49] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:18:10] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:18:10] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:18:10] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:18:10] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:21:07] "OPTIONS /auth/register HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:21:08] "[35m[1mPOST /auth/register HTTP/1.1[0m" 201 -
+127.0.0.1 - - [02/Nov/2025 23:21:08] "OPTIONS /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:21:08] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:21:08] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:21:08] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:21:08] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:21:08] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:21:08] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:21:08] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:21:08] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:21:08] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:21:08] "OPTIONS /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:21:08] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:21:08] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:22:02] "OPTIONS /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:22:02] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:22:02] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:22:02] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:22:02] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:22:02] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:22:02] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:22:02] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:22:02] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:22:02] "OPTIONS /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:22:02] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:22:02] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:24:58] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:25:01] "OPTIONS /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:25:01] "OPTIONS /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:25:01] "GET /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:25:01] "GET /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:25:01] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:25:01] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:25:01] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:25:01] "GET /applications/ HTTP/1.1" 200 -
+ * Detected change in '/home/stephen/WorkBridge-Backend/routes.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 188-726-667
+127.0.0.1 - - [02/Nov/2025 23:33:17] "OPTIONS /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:33:17] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+ * Detected change in '/home/stephen/WorkBridge-Backend/routes.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 188-726-667
+127.0.0.1 - - [02/Nov/2025 23:34:43] "OPTIONS /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:34:43] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+127.0.0.1 - - [02/Nov/2025 23:36:33] "OPTIONS /auth/register HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:36:33] "[35m[1mPOST /auth/register HTTP/1.1[0m" 201 -
+127.0.0.1 - - [02/Nov/2025 23:36:33] "OPTIONS /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:36:33] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:36:33] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:36:33] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:36:33] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:36:33] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:36:33] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:36:33] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:36:33] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:36:33] "OPTIONS /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:36:33] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:36:33] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:38:12] "OPTIONS /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:38:13] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:38:13] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:38:13] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:38:13] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:38:13] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:38:13] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:38:13] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:38:13] "OPTIONS /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:38:13] "OPTIONS /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:38:13] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:38:13] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:38:47] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:38:47] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:38:47] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:38:47] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:38:48] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:38:48] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:38:48] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:38:48] "OPTIONS /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:38:48] "OPTIONS /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:38:48] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:38:48] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:39:57] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:40:07] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:40:15] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+127.0.0.1 - - [02/Nov/2025 23:40:24] "[31m[1mPOST /applications HTTP/1.1[0m" 400 -
+127.0.0.1 - - [02/Nov/2025 23:40:35] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:45:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:45:07] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [02/Nov/2025 23:45:37] "OPTIONS /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:45:37] "OPTIONS /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:45:37] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:45:37] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:12] "OPTIONS /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:12] "OPTIONS /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:12] "GET /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:12] "GET /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:12] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:12] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:12] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:12] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:12] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:12] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:12] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:12] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:18] "OPTIONS /jobseekers/jobs?page=2&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:18] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:18] "GET /jobseekers/jobs?page=2&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:18] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:20] "OPTIONS /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:20] "OPTIONS /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:20] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:20] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:23] "OPTIONS /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:23] "GET /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:23] "GET /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:23] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:23] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:23] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:23] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:23] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:23] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:48:23] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:49:51] "OPTIONS /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:49:52] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:49:52] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:49:52] "OPTIONS /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:49:52] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:49:52] "GET /jobseekers/me HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:49:52] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:49:52] "OPTIONS /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:49:52] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:49:52] "GET /employer/applications HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:49:52] "OPTIONS /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:49:52] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:49:52] "GET /employer/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:04] "OPTIONS /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:04] "OPTIONS /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:04] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:04] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "OPTIONS /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 23:50:05] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 00:05:16] "OPTIONS /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 00:05:16] "OPTIONS /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 00:05:16] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 00:05:16] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -

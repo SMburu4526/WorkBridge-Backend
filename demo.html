@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WorkBridge Job Seeker Demo</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; }
+        input, select, button { margin: 5px; padding: 8px; }
+        .job-card { border: 1px solid #ccc; padding: 10px; margin: 10px 0; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>WorkBridge Job Seeker Demo</h1>
+        
+        <!-- Login Section -->
+        <div class="section" id="loginSection">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Username" value="seeker1">
+            <input type="password" id="password" placeholder="Password" value="password123">
+            <button onclick="login()">Login</button>
+        </div>
+        
+        <!-- Job Search Section -->
+        <div class="section hidden" id="jobSection">
+            <h2>Job Search</h2>
+            <input type="text" id="search" placeholder="Search jobs...">
+            <input type="text" id="location" placeholder="Location">
+            <select id="jobType">
+                <option value="">All Types</option>
+                <option value="full-time">Full-time</option>
+                <option value="part-time">Part-time</option>
+            </select>
+            <button onclick="searchJobs()">Search</button>
+            <div id="jobsList"></div>
+        </div>
+        
+        <!-- Applications Section -->
+        <div class="section hidden" id="appsSection">
+            <h2>My Applications</h2>
+            <button onclick="loadApplications()">Load Applications</button>
+            <div id="applicationsList"></div>
+        </div>
+        
+        <!-- Favorites Section -->
+        <div class="section hidden" id="favsSection">
+            <h2>Favorite Jobs</h2>
+            <button onclick="loadFavorites()">Load Favorites</button>
+            <div id="favoritesList"></div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:5000/api';
+        let authToken = null;
+
+        async function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            try {
+                const response = await fetch(`${API_BASE}/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    authToken = data.access_token;
+                    document.getElementById('loginSection').classList.add('hidden');
+                    document.getElementById('jobSection').classList.remove('hidden');
+                    document.getElementById('appsSection').classList.remove('hidden');
+                    document.getElementById('favsSection').classList.remove('hidden');
+                    searchJobs();
+                } else {
+                    alert('Login failed');
+                }
+            } catch (error) {
+                alert('Login error: ' + error.message);
+            }
+        }
+
+        async function searchJobs() {
+            const search = document.getElementById('search').value;
+            const location = document.getElementById('location').value;
+            const jobType = document.getElementById('jobType').value;
+            
+            const params = new URLSearchParams();
+            if (search) params.append('search', search);
+            if (location) params.append('location', location);
+            if (jobType) params.append('job_type', jobType);
+            
+            try {
+                const response = await fetch(`${API_BASE}/jobs?${params}`);
+                const data = await response.json();
+                
+                const jobsList = document.getElementById('jobsList');
+                jobsList.innerHTML = data.jobs.map(job => `
+                    <div class="job-card">
+                        <h3>${job.title}</h3>
+                        <p><strong>Location:</strong> ${job.location}</p>
+                        <p><strong>Type:</strong> ${job.job_type}</p>
+                        <p><strong>Salary:</strong> $${job.salary}</p>
+                        <p>${job.description}</p>
+                        <button onclick="applyForJob(${job.id})">Apply</button>
+                        <button onclick="addToFavorites(${job.id})">Add to Favorites</button>
+                    </div>
+                `).join('');
+            } catch (error) {
+                alert('Error loading jobs: ' + error.message);
+            }
+        }
+
+        async function applyForJob(jobId) {
+            try {
+                const response = await fetch(`${API_BASE}/applications`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${authToken}`
+                    },
+                    body: JSON.stringify({ job_id: jobId })
+                });
+                
+                if (response.ok) {
+                    alert('Application submitted successfully!');
+                } else {
+                    const error = await response.json();
+                    alert(error.error || 'Application failed');
+                }
+            } catch (error) {
+                alert('Error applying: ' + error.message);
+            }
+        }
+
+        async function addToFavorites(jobId) {
+            try {
+                const response = await fetch(`${API_BASE}/favorites`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${authToken}`
+                    },
+                    body: JSON.stringify({ job_id: jobId })
+                });
+                
+                if (response.ok) {
+                    alert('Job added to favorites!');
+                } else {
+                    const error = await response.json();
+                    alert(error.error || 'Failed to add to favorites');
+                }
+            } catch (error) {
+                alert('Error adding to favorites: ' + error.message);
+            }
+        }
+
+        async function loadApplications() {
+            try {
+                const response = await fetch(`${API_BASE}/applications/my-applications`, {
+                    headers: { 'Authorization': `Bearer ${authToken}` }
+                });
+                
+                const applications = await response.json();
+                const list = document.getElementById('applicationsList');
+                
+                if (applications.length === 0) {
+                    list.innerHTML = '<p>No applications found.</p>';
+                    return;
+                }
+                
+                list.innerHTML = applications.map(app => `
+                    <div class="job-card">
+                        <h3>${app.job.title}</h3>
+                        <p><strong>Status:</strong> ${app.status}</p>
+                        <p><strong>Location:</strong> ${app.job.location}</p>
+                        <p><strong>Salary:</strong> $${app.job.salary}</p>
+                    </div>
+                `).join('');
+            } catch (error) {
+                alert('Error loading applications: ' + error.message);
+            }
+        }
+
+        async function loadFavorites() {
+            try {
+                const response = await fetch(`${API_BASE}/favorites`, {
+                    headers: { 'Authorization': `Bearer ${authToken}` }
+                });
+                
+                const favorites = await response.json();
+                const list = document.getElementById('favoritesList');
+                
+                if (favorites.length === 0) {
+                    list.innerHTML = '<p>No favorite jobs found.</p>';
+                    return;
+                }
+                
+                list.innerHTML = favorites.map(fav => `
+                    <div class="job-card">
+                        <h3>${fav.job.title}</h3>
+                        <p><strong>Location:</strong> ${fav.job.location}</p>
+                        <p><strong>Salary:</strong> $${fav.job.salary}</p>
+                        <p>${fav.job.description}</p>
+                        <button onclick="removeFavorite(${fav.job.id})">Remove</button>
+                    </div>
+                `).join('');
+            } catch (error) {
+                alert('Error loading favorites: ' + error.message);
+            }
+        }
+
+        async function removeFavorite(jobId) {
+            try {
+                const response = await fetch(`${API_BASE}/favorites/${jobId}`, {
+                    method: 'DELETE',
+                    headers: { 'Authorization': `Bearer ${authToken}` }
+                });
+                
+                if (response.ok) {
+                    loadFavorites();
+                }
+            } catch (error) {
+                alert('Error removing favorite: ' + error.message);
+            }
+        }
+    </script>
+</body>
+</html>

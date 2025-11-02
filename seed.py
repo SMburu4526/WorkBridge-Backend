@@ -5,11 +5,11 @@ from app import create_app
 def seed_data():
     app = create_app()
     with app.app_context():
-        # Clear existing data
+
         db.drop_all()
         db.create_all()
 
-        # --- USERS ---
+
         admin = User(
             role='Admin',
             email='admin@workbridge.com',
@@ -58,7 +58,7 @@ def seed_data():
         db.session.add_all([admin, employer1, employer2, jobseeker1, jobseeker2])
         db.session.commit()
 
-        # --- JOBS ---
+
         job1 = Job(
             title='Backend Developer',
             description='Develop RESTful APIs using Flask and PostgreSQL.',
@@ -89,7 +89,7 @@ def seed_data():
         db.session.add_all([job1, job2, job3])
         db.session.commit()
 
-        # --- APPLICATIONS ---
+
         application1 = Application(
             job_id=job1.id,
             user_id=jobseeker1.id,
