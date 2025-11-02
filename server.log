@@ -1127,3 +1127,5 @@ sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed
 127.0.0.1 - - [03/Nov/2025 00:05:16] "OPTIONS /jobs?page=1&limit=9 HTTP/1.1" 200 -
 127.0.0.1 - - [03/Nov/2025 00:05:16] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
 127.0.0.1 - - [03/Nov/2025 00:05:16] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+ * Detected change in '/home/stephen/WorkBridge-Backend/app.py', reloading
+ * Restarting with stat
