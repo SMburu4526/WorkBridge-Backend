@@ -1,4 +1,4 @@
-from models import db, User, Job, Application, Favorite
+from models import db, User, Job, Application
 from flask import Flask
 
 app = Flask(__name__)

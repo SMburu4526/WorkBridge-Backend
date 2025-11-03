@@ -1,0 +1,10 @@
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2MjEyOTkwMywianRpIjoiYWZmYTYyZGYtZjEwOS00OTQyLTg5NzItMWU4ODkzZTYyN2I5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InNlZWtlcjEiLCJuYmYiOjE3NjIxMjk5MDMsImV4cCI6MTc2MjEzMDgwMywicm9sZSI6ImpvYl9zZWVrZXIiLCJ1c2VyX2lkIjoyfQ._RgDTKOrJKM_MqiINk0rRQFxoYFm1XZckYGC1WI5qqU",
+  "role": "job_seeker",
+  "user": {
+    "id": 2,
+    "name": "Jane Seeker",
+    "role": "job_seeker",
+    "username": "seeker1"
+  }
+}

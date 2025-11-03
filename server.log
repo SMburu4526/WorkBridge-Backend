@@ -1129,3 +1129,162 @@ sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed
 127.0.0.1 - - [03/Nov/2025 00:05:16] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
  * Detected change in '/home/stephen/WorkBridge-Backend/app.py', reloading
  * Restarting with stat
+127.0.0.1 - - [03/Nov/2025 02:49:08] "OPTIONS /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 02:49:09] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 02:49:09] "GET /jobs?page=1&limit=9 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "OPTIONS /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /jobs?page=1&limit=10&search= HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:13:36] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:14:51] "OPTIONS /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:14:51] "OPTIONS /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:14:51] "GET /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:14:51] "GET /jobs?limit=5 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:14:51] "OPTIONS /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:14:51] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:14:51] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:14:51] "OPTIONS /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:14:51] "GET /jobseekers/jobs?page=1&limit=10 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:14:51] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:14:51] "GET /applications/ HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:22:32] "OPTIONS /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:22:33] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+127.0.0.1 - - [03/Nov/2025 03:23:32] "OPTIONS /auth/register HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 03:23:32] "[31m[1mPOST /auth/register HTTP/1.1[0m" 400 -
+127.0.0.1 - - [03/Nov/2025 03:25:15] "[33mPOST /api/login HTTP/1.1[0m" 404 -
+127.0.0.1 - - [03/Nov/2025 03:25:56] "[33mPOST /api/login HTTP/1.1[0m" 404 -
+127.0.0.1 - - [03/Nov/2025 03:28:11] "OPTIONS /auth/register HTTP/1.1" 200 -
+[2025-11-03 03:28:11,322] ERROR in app: Exception on /auth/register [POST]
+Traceback (most recent call last):
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: attempt to write a readonly database
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/WorkBridge-Backend/routes.py", line 34, in register
+    db.session.commit()
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 597, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1311, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1286, in _prepare_impl
+    self.session.flush()
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4331, in flush
+    self._flush(objects)
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4466, in _flush
+    with util.safe_reraise():
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4427, in _flush
+    flush_context.execute()
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1419, in execute
+    return meth(
+           ^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/stephen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) attempt to write a readonly database
+[SQL: INSERT INTO user (username, password_hash, role, name, skills, experience, phone, location, resume_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('billiengugi45@gmail.com', '$2b$12$6wKlcbeYJrH.0ZLVLm17XuhwSPMAohIRFi0zZIWNqx8C6bUBtHtVa', 'job_seeker', 'Billie Ngugi', None, None, '0745678789', None, None)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+127.0.0.1 - - [03/Nov/2025 03:28:11] "[35m[1mPOST /auth/register HTTP/1.1[0m" 500 -
